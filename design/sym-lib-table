@@ -1,0 +1,4 @@
+(sym_lib_table
+  (lib (name PhoneBot-rescue)(type Legacy)(uri ${KIPRJMOD}/PhoneBot-rescue.lib)(options "")(descr ""))
+  (lib (name Custom)(type Legacy)(uri ${KIPRJMOD}/Custom.lib)(options "")(descr ""))
+)

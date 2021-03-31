@@ -1,0 +1,82 @@
+
+(rules PCB PhoneBot
+  (snap_angle 
+    fortyfive_degree
+  )
+  (autoroute_settings
+    (fanout off)
+    (autoroute on)
+    (postroute on)
+    (vias on)
+    (via_costs 50)
+    (plane_via_costs 5)
+    (start_ripup_costs 100)
+    (start_pass_no 43)
+    (layer_rule F.Cu
+      (active on)
+      (preferred_direction vertical)
+      (preferred_direction_trace_costs 1.0)
+      (against_preferred_direction_trace_costs 3.5)
+    )
+    (layer_rule B.Cu
+      (active on)
+      (preferred_direction horizontal)
+      (preferred_direction_trace_costs 1.0)
+      (against_preferred_direction_trace_costs 1.4)
+    )
+  )
+  (rule
+    (width 250.0)
+    (clear 100.2)
+    (clear 125.0 (type smd_to_turn_gap))
+    (clear 25.0 (type smd_smd))
+  )
+  (padstack "Via[0-1]_800:400_um"
+    (shape
+      (circle F.Cu 800.0 0.0 0.0)
+    )
+    (shape
+      (circle B.Cu 800.0 0.0 0.0)
+    )
+    (attach off)
+  )
+  (via 
+    "Via[0-1]_800:400_um" "Via[0-1]_800:400_um" default
+  )
+  (via 
+    "Via[0-1]_800:400_um-kicad_default" "Via[0-1]_800:400_um" "kicad_default"
+  )
+  (via_rule
+    default "Via[0-1]_800:400_um"
+  )
+  (via_rule
+    "kicad_default" "Via[0-1]_800:400_um-kicad_default"
+  )
+  (class default
+    (clearance_class default)
+    (via_rule default)
+    (rule
+      (width 250.0)
+    )
+    (circuit 
+      (use_layer F.Cu B.Cu)
+    )
+  )
+  (class "kicad_default"
+    GND +3V3 "Net-(L301-Pad2)" "/PowerSheet/VBAT_SENSE" +5V "Net-(BT301-Pad1)" "Net-(C101-Pad1)" "Net-(C102-Pad2)"
+    "Net-(C103-Pad1)" "Net-(C104-Pad2)" "/~BLE_RST" "Net-(C304-Pad1)" "Net-(C306-Pad1)" "Net-(C308-Pad2)" "Net-(C308-Pad1)" /~RST
+    /MOSI /SCK /MISO /M1a /M2a /M3a /M4a /VBUS
+    "Net-(J106-PadA7)" "Net-(J106-PadA6)" "Net-(J106-PadB5)" "Net-(J106-PadA5)" /M1b /M2b /M3b /M4b
+    "Net-(R101-Pad2)" /A0 /RD+ "/RD-" "Net-(R303-Pad2)" "/BLE_MODE" "/ATMEGA_CTS" "/ATMEGA_TX"
+    "/ATMEGA_RX" "/ATMEGA_RTS" "Net-(R202-Pad2)" "Net-(C311-Pad1)" "Net-(D201-Pad1)" "Net-(D301-Pad1)" "Net-(D302-Pad1)" "Net-(D303-Pad2)"
+    "Net-(D304-Pad2)" "Net-(J106-PadB6)" "Net-(J106-PadB7)" "Net-(R309-Pad1)" "Net-(R310-Pad1)" "/CHG_FULL" /CHGING "Net-(SW301-Pad1)"
+    (clearance_class "kicad_default")
+    (via_rule kicad_default)
+    (rule
+      (width 250.0)
+    )
+    (circuit 
+      (use_layer F.Cu B.Cu)
+    )
+  )
+)
