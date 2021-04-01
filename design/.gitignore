@@ -31,3 +31,15 @@ fp-info-cache
 *-cache*
 *-bak*
 _autosave*
+
+
+# Legacy files
+*.pro
+*.sch
+*.lib
+*.dcm
+*-cache.lib
+*.brd
+*.mod
+*.kicad_prl
+
