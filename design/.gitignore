@@ -42,4 +42,4 @@ _autosave*
 *.brd
 *.mod
 *.kicad_prl
-
+*.zip
