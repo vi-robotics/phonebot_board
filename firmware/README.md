@@ -4,7 +4,7 @@ Phonebot (Arduino) embedded developments, including firmware and sample apps.
 
 ## Running
 
-Each folder contains a `.ino` file which is runnable by the Arduino IDE as well as additional `.cpp` and `.h` files. For detailed instructions on how to install Arduino and flash the firmware, see [the docs](FIXME).
+Each folder contains a `.ino` file which is runnable by the Arduino IDE as well as additional `.cpp` and `.h` files. For detailed instructions on how to install Arduino and flash the firmware, see [the docs](https://github.com/vi-robotics/phonebot_docs/blob/main/electrical/firmware_setup.md).
 
 ## Firmware
 
