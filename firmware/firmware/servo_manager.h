@@ -3,8 +3,11 @@
 
 #include <Servo.h>
 
-// A Servo wrapper which adds sleep functionality to efficiently
-// attach and detach the servo based on if the value is updated.
+/**
+ * @brief A Servo wrapper which adds sleep functionality to efficiently attach
+ * and detach the servo based on if the value is updated.
+ *
+ */
 class ServoController
 {
   int pin_;

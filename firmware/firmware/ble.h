@@ -16,7 +16,10 @@
 
 #include "common.h"
 
-// TODO(max): Remove this class and reorganize class structure
+/**
+ * @brief BLE Manager configures the RN4871 chip if not configured already.
+ *
+ */
 class BLE
 {
 
