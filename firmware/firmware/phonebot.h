@@ -18,25 +18,20 @@
 // actuation
 int pins_[NUM_JOINTS] = {8, 6, 23, 22, 10, 9, 5, 13};
 
-// TODO(max): Figure out how to bring this inside the PhoneBot class.
-// NOTE: There were some bugs with how to do this, becauase initializing
-// the class inside another uses the defualt initializer, which CommandInterpreter
-// doesn't have, so was running into issues.
-CommandInterpreter command_interpreter(pins_); // Initialize the interpreter
-
 class PhoneBot
 {
+    // Initialize it with the default pins by default
+    CommandInterpreter command_interpreter = CommandInterpreter(pins_);
 
-  // communication
-  BLE ble_;
+    // communication
+    BLE ble_;
 
-  int positions_[NUM_JOINTS];
+    int positions_[NUM_JOINTS];
 
-public:
-  PhoneBot(const int *pins = NULL)
-  {
+  public:
+    PhoneBot() {} // Default constructor uses above pins if none are provided
 
-    if (pins)
+    PhoneBot(const int *pins): command_interpreter(pins)
     {
       // override pin definitions if provided
       for (int i = 0; i < NUM_JOINTS; ++i)
@@ -44,31 +39,29 @@ public:
         pins_[i] = pins[i];
       }
     }
-  }
 
-  void begin()
-  {
-    // ble begin
-    ble_.begin();
-  }
-
-  void step()
-  {
-    command_interpreter.step();
-
-    if (SERIAL_HOST.available())
+    void begin()
     {
-      // always passthrough host-->ble
-      SERIAL_BLE.write(SERIAL_HOST.read());
+      // ble begin
+      ble_.begin();
     }
-    if (SERIAL_BLE.available())
+
+    void step()
     {
-      
-      const byte b = SERIAL_BLE.read();
-      // The interpreter interprets and executes commands from BLE
-      command_interpreter.interpretRead(b);
+      command_interpreter.step();
+
+      if (SERIAL_HOST.available())
+      {
+        // always passthrough host-->ble
+        SERIAL_BLE.write(SERIAL_HOST.read());
+      }
+      if (SERIAL_BLE.available())
+      {
+        const byte b = SERIAL_BLE.read();
+        // The interpreter interprets and executes commands from BLE
+        command_interpreter.interpretRead(b);
+      }
     }
-  }
 };
 
 #endif
