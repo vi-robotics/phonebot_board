@@ -1,6 +1,16 @@
+/**
+ * @file test_walk.ino
+ * @author Yoonyoung Cho (jchocholate@gmail.com)
+ * @brief PhoneBot walk demo with a simple walking trajectory
+ * @version 0.1
+ * @date 2021-05-11
+ *
+ * @copyright Copyright (c) 2021
+ *
+ */
 #include <Servo.h>
 
-// number of waypoints
+ // number of waypoints
 #define NUM_WPT 25
 
 // index offsets

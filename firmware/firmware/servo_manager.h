@@ -1,13 +1,24 @@
+/**
+ * @file servo_manager.h
+ * @author Maximilian Schommer (maxschommer@gmail.com)
+ * @brief ServoManager and ServoController manage servos in an energy efficient
+ * way by detaching from the servo pin when a timeout has been exceeded.
+ * @version 0.1
+ * @date 2021-05-11
+ *
+ * @copyright Copyright (c) 2021
+ *
+ */
 #ifndef __SERVO_MANAGER_H__
 #define __SERVO_MANAGER_H__
 
 #include <Servo.h>
 
-/**
- * @brief A Servo wrapper which adds sleep functionality to efficiently attach
- * and detach the servo based on if the value is updated.
- *
- */
+ /**
+  * @brief A Servo wrapper which adds sleep functionality to efficiently attach
+  * and detach the servo based on if the value is updated.
+  *
+  */
 class ServoController
 {
   int pin_;

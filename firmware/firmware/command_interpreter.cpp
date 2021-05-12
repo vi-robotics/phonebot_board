@@ -1,3 +1,14 @@
+/**
+ * @file command_interpreter.cpp
+ * @author Maximilian Schommer (maxschommer@gmail.com)
+ * @brief Command interpreter implements the command specification given by
+ * https://github.com/vi-robotics/phonebot_docs/blob/main/electrical/ble_command_reference.md
+ * @version 0.1
+ * @date 2021-05-11
+ *
+ * @copyright Copyright (c) 2021
+ *
+ */
 #include <Arduino.h>
 #include "common.h"
 #include "servo_manager.h"

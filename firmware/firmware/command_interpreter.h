@@ -1,3 +1,14 @@
+/**
+ * @file command_interpreter.h
+ * @author Maximilian Schommer (maxschommer@gmail.com)
+ * @brief Command interpreter implements the command specification given by
+ * https://github.com/vi-robotics/phonebot_docs/blob/main/electrical/ble_command_reference.md
+ * @version 0.1
+ * @date 2021-05-11
+ *
+ * @copyright Copyright (c) 2021
+ *
+ */
 #ifndef __INTERPRETER_H__
 #define __INTERPRETER_H__
 
@@ -5,10 +16,10 @@
 #include "servo_manager.h"
 
 
-/**
- * @brief The stage in the transmission protocol the current byte is
- *
- */
+ /**
+  * @brief The stage in the transmission protocol the current byte is
+  *
+  */
 enum TransmissionStage : byte
 {
   WAITING,

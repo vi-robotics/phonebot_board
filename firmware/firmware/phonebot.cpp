@@ -1,3 +1,13 @@
+/**
+ * @file phonebot.cpp
+ * @author Maximilian Schommer (maxschommer@gmail.com)
+ * @brief PhoneBot class monitors and responds to BLE serial events
+ * @version 0.1
+ * @date 2021-05-11
+ *
+ * @copyright Copyright (c) 2021
+ *
+ */
 #include <Arduino.h>
 #include "common.h"
 #include "phonebot.h"

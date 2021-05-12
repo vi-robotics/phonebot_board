@@ -1,3 +1,13 @@
+/**
+ * @file ble.h
+ * @author Maximilian Schommer (maxschommer@gmail.com)
+ * @brief BLE configuration class to set up RN4871 for PhoneBot
+ * @version 0.1
+ * @date 2021-05-11
+ *
+ * @copyright Copyright (c) 2021
+ *
+ */
 #ifndef __BLE_H__
 #define __BLE_H__
 
@@ -16,10 +26,10 @@
 
 #include "common.h"
 
-/**
- * @brief BLE Manager configures the RN4871 chip if not configured already.
- *
- */
+ /**
+  * @brief BLE Manager configures the RN4871 chip if not configured already.
+  *
+  */
 class BLE
 {
 

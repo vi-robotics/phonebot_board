@@ -1,11 +1,19 @@
-
+/**
+ * @file ble.cpp
+ * @author Maximilian Schommer (maxschommer@gmail.com)
+ * @brief BLE configuration class to set up RN4871 for PhoneBot
+ * @version 0.1
+ * @date 2021-05-11
+ *
+ * @copyright Copyright (c) 2021
+ *
+ */
 #include <Arduino.h>
 #include <EEPROM.h>
 
 #include "common.h"
 #include "ble.h"
 
-// TODO(max): Remove this class and reorganize class structure
 
 BLE::BLE()
 {
