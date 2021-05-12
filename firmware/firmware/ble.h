@@ -20,31 +20,76 @@
 class BLE
 {
 
-    //bool passthrough_ = true;
-    int buf_idx_;
-    bool recv_; // currently receiving
-    bool has_cmd_;
-    int tmp_[NUM_JOINTS];
-    static constexpr const int kBleTimeoutMs = 1000;
+  //bool passthrough_ = true;
+  int buf_idx_;
+  bool recv_; // currently receiving
+  bool has_cmd_;
+  int tmp_[NUM_JOINTS];
+  static constexpr const int kBleTimeoutMs = 1000;
 
-  public:
-    BLE();
+public:
+  /**
+   * @brief Construct a new BLE object which manages BLE configuration and
+   * serial buffers. This is mainly specific to the RN4871 chip.
+   *
+   */
+  BLE();
 
-    void begin();
+  /**
+   * @brief Initialize the BLE module. This checks EEPROM to see if the device
+   * has already been configured, and if not then runs the auto-configuration
+   * script. Checking EEPROM for config settings is dependent on EEPROM being
+   * writen with 0s from the factory.
+   *
+   */
+  void begin();
 
-    void autoConfigBaud();
+  /**
+   * @brief Automatically configure the Baud rate of the BLE module. This is
+   * notably difficult when the chip is in the factory state, since the
+   * AtMega32u4 can barely communicate at the initial baud rate, and errors
+   * are highly likely.
+   *
+   */
+  void autoConfigBaud();
 
-    void rebootBLE();
+  /**
+   * @brief Restart the BLE module.
+   *
+   */
+  void rebootBLE();
 
-    void waitForCommandComplete();
+  /**
+   * @brief Wait two seconds, and then clear the BLE buffer.
+   *
+   */
+  void waitForCommandComplete();
 
-    void setBLESerial(const long baudRate);
+  /**
+   * @brief Set the serial communication baud rate of the BLE module to the
+   * given speed. This refreshes the serial channel at the new rate.
+   *
+   * @param baudRate The Baud rate to set the BLE module to
+   */
+  void setBLESerial(const long baudRate);
 
-    bool checkEnterCmdMode();
+  /**
+   * @brief Check that command mode has been entered successfully
+   *
+   * @return true Command mode entered successfully
+   * @return false Command mode has not entered successfully
+   */
+  bool checkEnterCmdMode();
 
-    void step();
+  void step();
 
-    bool has_cmd();
+  /**
+   * @brief Returns whether the BLE serial buffer has a command
+   *
+   * @return true
+   * @return false
+   */
+  bool has_cmd();
 };
 
 #endif

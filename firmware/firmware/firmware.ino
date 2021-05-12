@@ -2,12 +2,18 @@
 
 PhoneBot bot;
 
+/**
+ * @brief Starts up PhoneBot
+ *
+ */
 void setup() {
-  // put your setup code here, to run once:
   bot.begin();
 }
 
+/**
+ * @brief Runs the update loop of PhoneBot
+ *
+ */
 void loop() {
-  // put your main code here, to run repeatedly:
   bot.step();
 }

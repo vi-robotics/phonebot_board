@@ -15,53 +15,50 @@
     (Sparkfun)
     D8  , D6  , D23 , D22 , D10 , D9  , D5  , D13 // << use this since we're using their board definition
 */
-// actuation
-int pins_[NUM_JOINTS] = {8, 6, 23, 22, 10, 9, 5, 13};
 
+
+/**
+ * @brief PhoneBot manages servo control and BLE communication
+ *
+ */
 class PhoneBot
 {
-    // Initialize it with the default pins by default
-    CommandInterpreter command_interpreter = CommandInterpreter(pins_);
+  int pins_[NUM_JOINTS] = { 8, 6, 23, 22, 10, 9, 5, 13 };
 
-    // communication
-    BLE ble_;
+  // Initialize it with the default pins by default
+  CommandInterpreter command_interpreter = CommandInterpreter(pins_);
 
-    int positions_[NUM_JOINTS];
+  // communication
+  BLE ble_;
 
-  public:
-    PhoneBot() {} // Default constructor uses above pins if none are provided
+  int positions_[NUM_JOINTS];
 
-    PhoneBot(const int *pins): command_interpreter(pins)
-    {
-      // override pin definitions if provided
-      for (int i = 0; i < NUM_JOINTS; ++i)
-      {
-        pins_[i] = pins[i];
-      }
-    }
+public:
 
-    void begin()
-    {
-      // ble begin
-      ble_.begin();
-    }
+  /**
+     @brief Constructs a PhoneBot which is bound to the default pins
+  */
+  PhoneBot(); // Default constructor uses above pins if none are provided
 
-    void step()
-    {
-      command_interpreter.step();
+  /**
+     @brief Constructs a PhoneBot which is bound to the provided pins
 
-      if (SERIAL_HOST.available())
-      {
-        // always passthrough host-->ble
-        SERIAL_BLE.write(SERIAL_HOST.read());
-      }
-      if (SERIAL_BLE.available())
-      {
-        const byte b = SERIAL_BLE.read();
-        // The interpreter interprets and executes commands from BLE
-        command_interpreter.interpretRead(b);
-      }
-    }
+     @param pins The pins to bind to for each leg. Must contain 8 elements
+  */
+  PhoneBot(const int* pins);
+
+  /**
+   * @brief Starts BLE communication
+   */
+  void begin();
+
+
+  /**
+   * @brief Handles BLE receive and transmit buffers as well as
+   * interpreting data sent over BLE and executing it via the
+   * command interpreter.
+   */
+  void step();
 };
 
 #endif
