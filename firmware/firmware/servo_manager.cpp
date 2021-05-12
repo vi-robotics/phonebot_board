@@ -1,3 +1,14 @@
+/**
+ * @file servo_manager.cpp
+ * @author Maximilian Schommer (maxschommer@gmail.com)
+ * @brief ServoManager and ServoController manage servos in an energy efficient
+ * way by detaching from the servo pin when a timeout has been exceeded.
+ * @version 0.1
+ * @date 2021-05-11
+ *
+ * @copyright Copyright (c) 2021
+ *
+ */
 #include <Arduino.h>
 #include "servo_manager.h"
 
