@@ -20,31 +20,31 @@
 class BLE
 {
 
-  //bool passthrough_ = true;
-  int buf_idx_;
-  bool recv_; // currently receiving
-  bool has_cmd_;
-  int tmp_[NUM_JOINTS];
-  static constexpr const int kBleTimeoutMs = 1000;
+    //bool passthrough_ = true;
+    int buf_idx_;
+    bool recv_; // currently receiving
+    bool has_cmd_;
+    int tmp_[NUM_JOINTS];
+    static constexpr const int kBleTimeoutMs = 1000;
 
-public:
-  BLE();
+  public:
+    BLE();
 
-  void begin();
+    void begin();
 
-  void autoConfigBaud();
+    void autoConfigBaud();
 
-  void rebootBLE();
+    void rebootBLE();
 
-  void waitForCommandComplete();
+    void waitForCommandComplete();
 
-  void setBLESerial(const long baudRate);
+    void setBLESerial(const long baudRate);
 
-  bool checkEnterCmdMode();
+    bool checkEnterCmdMode();
 
-  void step();
+    void step();
 
-  bool has_cmd();
+    bool has_cmd();
 };
 
 #endif
