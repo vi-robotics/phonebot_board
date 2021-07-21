@@ -6,6 +6,8 @@
 *.bak
 *.bck
 *.kicad_pcb-bak
+*.kicad_sch-bak
+*.kicad_prl
 *.sch-bak
 *~
 _autosave-*
@@ -25,4 +27,19 @@ fp-info-cache
 *.xml
 *.csv
 
-*.vscode
+*-bak
+*-cache*
+*-bak*
+_autosave*
+
+
+# Legacy files
+*.pro
+*.sch
+*.lib
+*.dcm
+*-cache.lib
+*.brd
+*.mod
+*.kicad_prl
+*.zip
