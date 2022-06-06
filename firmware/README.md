@@ -9,11 +9,3 @@ The main firmware is located in the [firmware directory](firmware) and contains 
 ## Firmware
 
 See the [firmware](firmware) directory, which contains our main firmware library to communicate with the PhoneBot App.
-
-## Apps
-
-Additional apps exist for testing small pieces of the hardware. Each contains a `.ino` file which can be opened by the Arduino IDE and flashed in the same way as the firmware.
-
-- [calibrate](apps/calibrate): App for servo axis direction and zero-position calibration.
-- [test_ble](apps/test_ble): Sample app for testing the BLE communication over serial.
-- [test_walk](apps/test_walk): Test script for continuous walking trajectory.
